@@ -212,9 +212,16 @@ def createMap(dataset1, dataset2, dataset3):
     return m
 
 def map_click():
-    #st.write(TF_1,TF_2,TF_3)
+    st.write(TF_1,TF_2,TF_3)
     FinalMap=createMap(TF_1, TF_2,TF_3)
-    FinalMap.save('traffic_map.html')
-    webbrowser.open('traffic_map.html')
+    FinalMap.save('index.html')
+    
+btn = st.sidebar.button("Create Map", on_click=map_click)
 
-st.sidebar.button("Create Map", on_click=map_click)
+app = Flask(__name__)
+@app.route('/')
+def Index():
+    return render_template(template_name_or_list='index.html')
+
+if btn: 
+    app.run()
