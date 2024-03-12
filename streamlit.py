@@ -213,7 +213,7 @@ def createMap(dataset1, dataset2, dataset3):
     return m
 
 def map_click():
-    st.write(TF_1,TF_2,TF_3)
+    #st.write(TF_1,TF_2,TF_3)
     FinalMap=createMap(TF_1, TF_2,TF_3)
     FinalMap.save('traffic_map.html')
     webbrowser.open('traffic_map.html')
