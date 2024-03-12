@@ -61,7 +61,7 @@ epsilon3 = np.linspace(0.001, 0.0098, num=1000).tolist()
 min_samples = [3,4,5,6,7]
 
 #Body
-col1, col2, col3 = st.columns([0.65,0.175,0.175])
+col1, col2, col3 = st.columns([0.7,0.15,0.15])
 with col1:
     with st.container():
         if levels == "Level 1":
