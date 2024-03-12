@@ -8,6 +8,7 @@ import folium
 from folium.plugins import GroupedLayerControl
 import webbrowser
 import streamlit as st
+from flask import Flask
 
 def getScore(dataset,epss,min_sampless,min_score,min_num_clus):
     if epss == epsilon1:
@@ -214,7 +215,8 @@ def createMap(dataset1, dataset2, dataset3):
 def map_click():
     #st.write(TF_1,TF_2,TF_3)
     FinalMap=createMap(TF_1, TF_2,TF_3)
-    FinalMap.save('traffic_map.html')
-    webbrowser.open('traffic_map.html')
-
-st.sidebar.button("Create Map", on_click=map_click)
+    FinalMap.save('index.html')
+    webbrowser.open('index.html')
+    
+    
+btn = st.sidebar.button("Create Map", on_click=map_click)
