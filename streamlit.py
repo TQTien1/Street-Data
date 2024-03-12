@@ -8,7 +8,6 @@ import folium
 from folium.plugins import GroupedLayerControl
 import webbrowser
 import streamlit as st
-from flask import Flask
 
 def getScore(dataset,epss,min_sampless,min_score,min_num_clus):
     if epss == epsilon1:
