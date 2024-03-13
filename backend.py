@@ -144,6 +144,7 @@ eps1, min1 = 0.005,5
 eps2, min2 = 0.005,5
 eps3, min3 = 0.005,5
 with st.sidebar.form("Traffic Level 1"):
+    st.header("Map parameters:")
     input_eps1 = st.number_input("Epsilon 1", min_value=0.00030, max_value=0.0098, step=0.00001, format="%f")
     input_min1 = st.number_input("Minimun Points 1", min_value=3, max_value=10)
     input_eps2 = st.number_input("Epsilon 2", min_value=0.00030, max_value=0.0098, step=0.00001, format="%f")
@@ -215,8 +216,8 @@ def createMap(dataset1, dataset2, dataset3):
 def map_click():
     #st.write(TF_1,TF_2,TF_3)
     FinalMap=createMap(TF_1, TF_2,TF_3)
-    FinalMap.save('templates/map.html')
-    #webbrowser.open('traffic_map.html')
-    folium_static(FinalMap)
-
+    FinalMap.save('Front End Web/templates/map.html')
+    folium_static(FinalMap, width=1400, height=800)
+    
+    
 st.sidebar.button("Create Map", on_click=map_click)
