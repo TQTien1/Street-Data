@@ -217,7 +217,6 @@ def map_click():
     #st.write(TF_1,TF_2,TF_3)
     FinalMap=createMap(TF_1, TF_2,TF_3)
     FinalMap.save('Front End Web/templates/map.html')
-    folium_static(FinalMap, width=1400, height=800)
-    
+    folium_static(FinalMap, width=900, height=800)    
     
 st.sidebar.button("Create Map", on_click=map_click)
