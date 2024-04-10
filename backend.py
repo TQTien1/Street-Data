@@ -127,16 +127,17 @@ with col2:
 with col3:    
     st.write("Datatypes",new_df.dtypes)
 
-st.header("Find best Parameters")
-sel_score = st.slider("Set Score", min_value=0.001, max_value=0.999, step=0.001, format="%f", value=0.4)
 with st.container():
-    if st.button("Find"):
-        if levels == "Level 1":
-            getScore(TF_1,epsilon1,min_samples,min_score=sel_score,min_num_clus=3)
-        if levels == "Level 2":
-            getScore(TF_2,epsilon2,min_samples,min_score=sel_score,min_num_clus=3)
-        if levels == "Level 3":
-            getScore(TF_3,epsilon3,min_samples,min_score=sel_score,min_num_clus=3)
+    st.header("Find best Parameters")
+    sel_score = st.slider("Set Score", min_value=0.001, max_value=0.999, step=0.001, format="%f", value=0.4)
+    with st.container():
+        if st.button("Find"):
+            if levels == "Level 1":
+                getScore(TF_1,epsilon1,min_samples,min_score=sel_score,min_num_clus=3)
+            if levels == "Level 2":
+                getScore(TF_2,epsilon2,min_samples,min_score=sel_score,min_num_clus=3)
+            if levels == "Level 3":
+                getScore(TF_3,epsilon3,min_samples,min_score=sel_score,min_num_clus=3)
 
 
 eps1, min1 = 0.005,5
@@ -215,7 +216,7 @@ def createMap(dataset1, dataset2, dataset3):
 def map_click():
     #st.write(TF_1,TF_2,TF_3)
     FinalMap=createMap(TF_1, TF_2,TF_3)
-    FinalMap.save('Front End Web/templates/map.html')
+    FinalMap.save('Front End Web/templates/index.html')
     folium_static(FinalMap, width=900, height=800)    
     
 st.sidebar.button("Create Map", on_click=map_click)
