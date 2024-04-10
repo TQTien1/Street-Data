@@ -5,3 +5,4 @@ plotly
 scikit-learn
 folium
 streamlit_folium
+gunicorn==19.7.1
