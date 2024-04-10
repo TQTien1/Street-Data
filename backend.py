@@ -6,9 +6,8 @@ import plotly.express as px
 import itertools as it 
 import folium
 from folium.plugins import GroupedLayerControl
-import webbrowser
 import streamlit as st
-from streamlit_folium import st_folium, folium_static
+from streamlit_folium import folium_static
 
 def getScore(dataset,epss,min_sampless,min_score,min_num_clus):
     if epss == epsilon1:
