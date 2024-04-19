@@ -73,7 +73,6 @@ if uploaded_df is not None:
                                     x = "Latitude",
                                     y = "Longitude", 
                                     color=TF_1['labels'].astype(str),
-                                    color_discrete_map={'-1':'red', '0': '#636EFA'},
                                     labels={"color" : "Cluster"},
                                 ) 
                 after_fig1.update_layout(   
@@ -217,8 +216,7 @@ if uploaded_df is not None:
         #st.write(TF_1,TF_2,TF_3)
         FinalMap=createMap(TF_1, TF_2,TF_3)
         FinalMap.save('Front End Web/templates/index.html')
-        folium_static(FinalMap, width=900, height=800)    
         
     st.sidebar.button("Create Map", on_click=map_click)
 else:
-    st.header("Import data")
+    st.write("Import data")
