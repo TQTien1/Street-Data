@@ -217,6 +217,7 @@ if uploaded_df is not None:
         #st.write(TF_1,TF_2,TF_3)
         FinalMap=createMap(TF_1, TF_2,TF_3)
         FinalMap.save('Front End Web/templates/index.html')
+        folium_static(FinalMap)
         subprocess.call(["git", "add", "."])
         subprocess.call(["git", "commit", "-m", "\'m\'"])
         subprocess.call(["git", "push"])
