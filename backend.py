@@ -217,12 +217,11 @@ if uploaded_df is not None:
         #st.write(TF_1,TF_2,TF_3)
         FinalMap=createMap(TF_1, TF_2,TF_3)
         FinalMap.save('Front End Web/templates/index.html')
-        
-    if st.sidebar.button("Create Map"):
-        map_click()
         subprocess.call(["git", "add", "."])
         subprocess.call(["git", "commit", "-m", "\'m\'"])
         subprocess.call(["git", "push"])
+        
+    st.sidebar.button("Create Map", on_click=map_click)
 
 else:
     st.write("Import data")
