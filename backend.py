@@ -8,6 +8,7 @@ import folium
 from folium.plugins import GroupedLayerControl
 import streamlit as st
 from streamlit_folium import folium_static
+import subprocess
 
 def getScore(dataset,epss,min_sampless,min_score,min_num_clus):
     if epss == epsilon1:
@@ -217,6 +218,11 @@ if uploaded_df is not None:
         FinalMap=createMap(TF_1, TF_2,TF_3)
         FinalMap.save('Front End Web/templates/index.html')
         
-    st.sidebar.button("Create Map", on_click=map_click)
+    if st.sidebar.button("Create Map"):
+        map_click()
+        subprocess.call(["git", "add", "."])
+        subprocess.call(["git", "commit", "-m", "\'m\'"])
+        subprocess.call(["git", "push"])
+
 else:
     st.write("Import data")
