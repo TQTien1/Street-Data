@@ -83,7 +83,6 @@ if uploaded_df is not None:
                         'xanchor': 'center',
                     })
                 st.plotly_chart(after_fig1)
-        with st.container():
             if levels == "Level 2":
                 sel_eps = st.sidebar.slider('Epsilon', min_value=0.00030, max_value=0.0098, step=0.00001, format="%f")
                 sel_minpts = st.sidebar.slider('Minimun Points', 3, 10)
@@ -102,7 +101,6 @@ if uploaded_df is not None:
                         'xanchor': 'center',
                     })
                 st.plotly_chart(after_fig2)
-        with st.container():
             if levels == "Level 3":
                 sel_eps = st.sidebar.slider('Epsilon', min_value=0.00030, max_value=0.0098, step=0.00001, format="%f")
                 sel_minpts = st.sidebar.slider('Minimun Points', 3, 7)
@@ -217,12 +215,14 @@ if uploaded_df is not None:
         #st.write(TF_1,TF_2,TF_3)
         FinalMap=createMap(TF_1, TF_2,TF_3)
         FinalMap.save('Front End Web/templates/index.html')
-        
-    if st.sidebar.button("Create Map"):
-        map_click()
+        folium_static(FinalMap)
+    def commit():
         subprocess.call(["git", "add", "."])
         subprocess.call(["git", "commit", "-m", "\'m\'"])
         subprocess.call(["git", "push"])
+        
+    st.sidebar.button("Create Map", on_click=map_click)
+    st.sidebar.button("Commit Changes", on_click=commit)
 
 else:
     st.write("Import data")
