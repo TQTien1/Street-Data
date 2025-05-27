@@ -123,9 +123,9 @@ if st.sidebar.button("Submit",key="2"):
         end = merged_data[merged_data['street_name'].str.upper() == end]['dbscan_cluster_labels'].values[0]
         optimized_path = a_star(start, end)
         map_folium=create_map(traffic_coords, optimized_path)
-        folium_static(map_folium, width=1400, height=800)
+        folium_static(map_folium, width=1300, height=700)
     else:
         st.write('Please select a valid street name.')
-        folium_static(default_map, width=1400, height=700)
-else: folium_static(default_map, width=1400, height=700)
+        folium_static(default_map, width=1300, height=700)
+else: folium_static(default_map, width=1300, height=700)
 
